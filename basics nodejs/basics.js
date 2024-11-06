@@ -92,3 +92,6 @@ function manyParameters(x, y, z, health, damage, movementSpeed, name) {
 }
 
 manyParameters(10, 3, 17, 100, undefined, 10, undefined);
+
+// ---- JSON prep
+// In app.js
