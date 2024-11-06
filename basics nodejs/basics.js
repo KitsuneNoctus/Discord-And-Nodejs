@@ -69,3 +69,26 @@ else {
 }
 
 // ---- lecture 26
+
+function myFunction() {
+  console.log("Inside a function");
+}
+
+myFunction();
+
+function myMath(number) {
+  // number = 4;
+  console.log(number);
+}
+
+myMath("Hi there");
+
+function manyParameters(x, y, z, health, damage, movementSpeed, name) {
+  console.log(x*y*z);
+  console.log("Your health is: " + health);
+  if (damage == undefined) {
+    console.log("You're in ...");
+  }
+}
+
+manyParameters(10, 3, 17, 100, undefined, 10, undefined);
