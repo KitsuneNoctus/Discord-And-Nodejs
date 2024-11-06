@@ -1,7 +1,8 @@
 // ----- 30 Temp converter
 
+// This function converts celius to fahrenheit with celsius input value
 function celsiusToFahrenheit(celsius) {
-  const f = (celsius * 1.8) + 32;
+  const f = (celsius * 1.8) + 32; // calculation for celsius to fahrenheight
   console.log( celsius + " Celsius = " + f + " Fahrenheit");
 
   if (f > 80) {
@@ -13,8 +14,9 @@ function celsiusToFahrenheit(celsius) {
   }
 }
 
+// This function converts fahrenheit to celsius with Fahrenheit value
 function fahrenheitToCelsius(fahrenheit) {
-  const c = (fahrenheit - 32) * 0.5556;
+  const c = (fahrenheit - 32) * 0.5556; // calculstion formul for fahrenheit to celsius
   console.log( fahrenheit + " Fahrenheit = " + c + " Celsius");
 
   if (c > 30) {

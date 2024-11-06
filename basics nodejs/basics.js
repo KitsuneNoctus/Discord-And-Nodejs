@@ -3,6 +3,7 @@ console.log("444");
 console.log(444);
 console.log(2 + 4 * 6 - 5 /3);
 
+// Some basic variables - let, var, const
 var firstName = "Hank";
 let lastName = "Shaw";
 const age = 21;
@@ -92,8 +93,3 @@ function manyParameters(x, y, z, health, damage, movementSpeed, name) {
 }
 
 manyParameters(10, 3, 17, 100, undefined, 10, undefined);
-
-// ---- JSON prep
-// In app.js
-
-// ----- 30 weight converter
