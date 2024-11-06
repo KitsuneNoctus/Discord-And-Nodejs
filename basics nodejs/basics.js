@@ -30,3 +30,21 @@ for (let i = 1; i <= 10; i++) {
 for (let i = 1; i <= 10; i += 2) {
   console.log(i);
 }
+
+// ---- part 22 Arrays
+let arr = [1,2,3,4,5,6,7,8,9,10];
+let wordArr = ["Hello","Hey","Hi",55,22,true,false];
+let emptyArr = [];
+
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+
+for (let i = 0; i < wordArr.length; i++) {
+  console.log(wordArr[i]);
+  emptyArr[i] = i;
+}
+
+console.log(emptyArr);
+
+// ------ part 24
