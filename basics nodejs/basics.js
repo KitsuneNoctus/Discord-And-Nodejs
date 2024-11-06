@@ -48,3 +48,24 @@ for (let i = 0; i < wordArr.length; i++) {
 console.log(emptyArr);
 
 // ------ part 24
+
+if (5==5) {
+  console.log("Numbers Match!");
+}
+
+if (5 != 5) {
+  console.log("Nums");
+}
+
+let math = 2 + 2;
+if (math == 2) {
+  console.log("Value is 2");
+}
+else if (math == 4) {
+  console.log("Value is 4");
+}
+else {
+  console.log("Value is not 2 or 4");
+}
+
+// ---- lecture 26
