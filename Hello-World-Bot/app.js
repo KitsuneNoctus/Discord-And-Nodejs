@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Discord = require("discord.js"); // discord.js node module
 
 // Gateway Intents were introduced by Discord so bot developers can choose 
@@ -20,3 +21,11 @@ const Client = new Discord.Client({
   ]
 }); // Creating a new client with intents and partials needed for this bot to function.
 // partials makes sure that we receive the full data of the object returned from events.
+
+// Ready event captures the state when the bot gets online.
+Client.on("ready", (client) => {
+  console.log("This bot is now online:" + client.user.tag);
+});
+
+// Logs in the discord bot with the password stored in an external file.
+Client.login(process.env.BOT_TOKEN);
