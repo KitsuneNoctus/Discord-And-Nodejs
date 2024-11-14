@@ -31,6 +31,20 @@ Client.on("ready", (client) => {
   console.log("This bot is now online:" + client.user.tag);
 });
 
+// messageCreate event captures data of a message that is created/posted.
+Client.on("messageCreate", (message) => {
+  // message content to lower case only
+
+  // only allow non-bots to perform any code execution.
+  if (message.author.bot) { return };
+  console.log("a new message written!");
+
+  // only run this code is the user that wrote the message is NOT a bot.
+  if (!message.author.bot) {
+    message.reply("Hello World! You are not a bot!");
+  };
+});
+
 // Logs in the discord bot with the password stored in an external file.
 Client.login(process.env.BOT_TOKEN);
 // Client.login(token); from part 48
