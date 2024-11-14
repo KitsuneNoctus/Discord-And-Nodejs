@@ -1,5 +1,9 @@
+// contains a string that is the password/token for the discord bot.
 require('dotenv').config();
 const Discord = require("discord.js"); // discord.js node module
+
+// contains a string that is the password/token for the discord bot. (from part 48)
+// const { token } = require("./config.json");
 
 // Gateway Intents were introduced by Discord so bot developers can choose 
 // which events their bot receives based on which data it needs to function.
