@@ -21,7 +21,8 @@ const Client = new Discord.Client({
     Discord.Partials.Channel,
     Discord.Partials.GuildMember,
     Discord.Partials.User,
-    Discord.Partials.GuildScheduledEvent
+    Discord.Partials.GuildScheduledEvent,
+    Discord.Partials.ThreadMember
   ]
 }); // Creating a new client with intents and partials needed for this bot to function.
 // partials makes sure that we receive the full data of the object returned from events.
@@ -53,6 +54,16 @@ Client.on("messageCreate", (message) => {
   // basic math return the sum of a few numbers using addition, subtraction, multip. etc.
   if (userInputText == "!math") {
     message.reply("5 + 2 - 1 * 5 / 2 - 4 + 7 * 3 % 5 = " + (5 + 2 - 1 * 5 / 2 - 4 + 7 * 3 % 5));
+  }
+
+  // server age and member's age in server
+  if (userInputText == "!age") {
+    // console.log(message.channel);
+    console.log(message.guild.createdTimestamp); // milliseconds since 1 jan 1970 at midnight.
+    console.log(message.guild.createdAt); // date when server was created
+    console.log(new Date(message.guild.createdTimestamp).toString()); // converting ms to actual date
+
+    message.reply("Server was created " + message.guild.createdAt.toString());
   }
 });
 
