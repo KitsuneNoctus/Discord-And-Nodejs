@@ -34,15 +34,21 @@ Client.on("ready", (client) => {
 // messageCreate event captures data of a message that is created/posted.
 Client.on("messageCreate", (message) => {
   // message content to lower case only
+  const userInputText = message.content.toLowerCase();
 
   // only allow non-bots to perform any code execution.
-  if (message.author.bot) { return };
+  if (message.author.bot) { return }
   console.log("a new message written!");
 
   // only run this code is the user that wrote the message is NOT a bot.
   if (!message.author.bot) {
     message.reply("Hello World! You are not a bot!");
-  };
+  }
+
+  // commands
+  if (userInputText == "!commands" || userInputText == "!help") {
+    message.reply("This bot operates on the following commands: !commands !help !age !math");
+  }
 });
 
 // Logs in the discord bot with the password stored in an external file.
