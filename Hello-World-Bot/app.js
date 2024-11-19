@@ -49,6 +49,11 @@ Client.on("messageCreate", (message) => {
   if (userInputText == "!commands" || userInputText == "!help") {
     message.reply("This bot operates on the following commands: !commands !help !age !math");
   }
+
+  // basic math return the sum of a few numbers using addition, subtraction, multip. etc.
+  if (userInputText == "!math") {
+    message.reply("5 + 2 - 1 * 5 / 2 - 4 + 7 * 3 % 5 = " + (5 + 2 - 1 * 5 / 2 - 4 + 7 * 3 % 5));
+  }
 });
 
 // Logs in the discord bot with the password stored in an external file.
