@@ -69,17 +69,19 @@ Client.on("messageCreate", (message) => {
   // Fetch guild members returns a promise.
   message.guild.members.fetch().then(
     (value) => {
-      console.log(value);
+      // console.log(value);
+      value.forEach(user => {
+        // print each user's id and the id of the author of the message
+        console.log(user.user.id + " " + message.author.id);
+        console.log(user.joinedTimestamp);// print joinedTimestamp
+        let date = new Date(user.joinedTimestamp);// Convert milliseconds to actual date and time
+        message.reply(user.user.tag + " joined:\n" + date.toString()); // reply with the date and time
+      });
     },
     (error) => {
-      console.log(error);
+      console.log(error); // prints error if it occurs.
     }
   );
-  // print each user's id and the id of the author of the message
-  // print joinedTimestamp
-  // Convert milliseconds to actual date and time
-  // reply with the date and time
-  // prints error if it occurs.
 
 });
 
