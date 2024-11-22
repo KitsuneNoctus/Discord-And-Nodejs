@@ -34,17 +34,79 @@ Client.on("messageCreate", (message) => {
     // message.content to lowercase
     let userInputToLowerCase = message.content.toLowerCase();
 
+    const pcOptions = ["rock","paper","scissors"]; //array for bot
+
+    // generates a random number 0, 1, or 2
+    const pcRoll = Math.floor(Math.random() * 3);
+
     // if user wrote rock
     if (userInputToLowerCase == "rock") {
-      message.reply("You chose " + userInputToLowerCase);
+      let statusMessage = "";
+
+      // pc selected rock = draw
+      if (pcOptions[pcRoll] == userInputToLowerCase) {
+        statusMessage = "It's a Draw";
+      }
+
+      // pc selected scissors = player win
+      else if (pcOptions[pcRoll] == "scissors") {
+        statusMessage = "You Win";
+      }
+
+      // pc selected paper = player lose
+      else if (pcOptions[pcRoll] == "paper") {
+        statusMessage = "You Lose";
+      }
+      // only run if something is wrong
+      else { message.reply("Error in the code"); }
+
+      message.reply(statusMessage);
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
-      message.reply("You chose " + userInputToLowerCase);
+      let statusMessage = "";
+
+      // pc selected paper = draw
+      if (pcOptions[pcRoll] == userInputToLowerCase) {
+        statusMessage = "It's a Draw";
+      }
+
+      // pc selected rock = player win
+      else if (pcOptions[pcRoll] == "rock") {
+        statusMessage = "You Win";
+      }
+
+      // pc selected scissors = player lose
+      else if (pcOptions[pcRoll] == "scissors") {
+        statusMessage = "You Lose";
+      }
+      // only run if something is wrong
+      else { message.reply("Error in the code"); }
+
+      message.reply(statusMessage);
     }
     // if user wrote scissors
     else if (userInputToLowerCase == "scissors") {
-      message.reply("You chose " + userInputToLowerCase);
+      let statusMessage = "";
+
+      // pc selected scissors = draw
+      if (pcOptions[pcRoll] == userInputToLowerCase) {
+        statusMessage = "It's a Draw";
+      }
+
+      // pc selected paper = player win
+      else if (pcOptions[pcRoll] == "paper") {
+        statusMessage = "You Win";
+      }
+
+      // pc selected paper = player lose
+      else if (pcOptions[pcRoll] == "paper") {
+        statusMessage = "You Lose";
+      }
+      // only run if something is wrong
+      else { message.reply("Error in the code"); }
+
+      message.reply(statusMessage);
     }
 });
 
