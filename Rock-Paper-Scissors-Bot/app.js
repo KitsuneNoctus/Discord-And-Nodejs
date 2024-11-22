@@ -99,8 +99,8 @@ Client.on("messageCreate", (message) => {
         statusMessage = "You Win";
       }
 
-      // pc selected paper = player lose
-      else if (pcOptions[pcRoll] == "paper") {
+      // pc selected rock = player lose
+      else if (pcOptions[pcRoll] == "rock") {
         statusMessage = "You Lose";
       }
       // only run if something is wrong
