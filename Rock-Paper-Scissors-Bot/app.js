@@ -63,7 +63,8 @@ Client.on("messageCreate", (message) => {
 
       message.reply("You selected rock and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
 
-      console.log(returnNewGameObject(message.author.id, message.author.tag));
+      let obj = returnNewGameObject(message.author.id, message.author.tag);
+      saveGameData(obj);
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
@@ -112,6 +113,14 @@ Client.on("messageCreate", (message) => {
       message.reply("You selected scissors and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
 });
+
+// save gamedata
+function saveGameData(data) {
+  const fs = require("fs"); //filesystem
+  const path = "./gamedata.json";
+
+  fs.writeFileSync(path, JSON.stringify(data));
+}
 
 // Object Structure
 function returnNewGameObject(userID, name) {
