@@ -29,7 +29,23 @@ Client.on("ready", (client) => {
 
 // messageCreate event captures data of a message that is created/posted.
 Client.on("messageCreate", (message) => {
-    
+    if (message.author.bot == true) { return; } // return if bot wrote a message
+
+    // message.content to lowercase
+    let userInputToLowerCase = message.content.toLowerCase();
+
+    // if user wrote rock
+    if (userInputToLowerCase == "rock") {
+      message.reply("You chose " + userInputToLowerCase);
+    }
+    // if user wrote paper
+    else if (userInputToLowerCase == "paper") {
+      message.reply("You chose " + userInputToLowerCase);
+    }
+    // if user wrote scissors
+    else if (userInputToLowerCase == "scissors") {
+      message.reply("You chose " + userInputToLowerCase);
+    }
 });
 
 Client.login(config); // Logs in the discord bot with the password stored in an external file.
