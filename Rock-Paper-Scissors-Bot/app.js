@@ -62,6 +62,8 @@ Client.on("messageCreate", (message) => {
 
 
       message.reply("You selected rock and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
+
+      console.log(returnNewGameObject(message.author.id, message.author.tag));
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
@@ -110,5 +112,19 @@ Client.on("messageCreate", (message) => {
       message.reply("You selected scissors and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
 });
+
+// Object Structure
+function returnNewGameObject(userID, name) {
+  return {
+    ID : 0,
+    userID : userID,
+    name : name,
+    draw : 0,
+    win : 0,
+    lose : 0,
+    rounds : 0,
+    time : new Date().toString()
+  }
+}
 
 Client.login(config); // Logs in the discord bot with the password stored in an external file.
