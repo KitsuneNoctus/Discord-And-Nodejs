@@ -60,7 +60,8 @@ Client.on("messageCreate", (message) => {
       // only run if something is wrong
       else { message.reply("Error in the code"); }
 
-      message.reply(statusMessage);
+
+      message.reply("You selected rock and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
@@ -83,7 +84,7 @@ Client.on("messageCreate", (message) => {
       // only run if something is wrong
       else { message.reply("Error in the code"); }
 
-      message.reply(statusMessage);
+      message.reply("You selected paper and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
     // if user wrote scissors
     else if (userInputToLowerCase == "scissors") {
@@ -106,7 +107,7 @@ Client.on("messageCreate", (message) => {
       // only run if something is wrong
       else { message.reply("Error in the code"); }
 
-      message.reply(statusMessage);
+      message.reply("You selected scissors and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
 });
 
