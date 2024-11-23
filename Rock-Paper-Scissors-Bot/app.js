@@ -137,7 +137,26 @@ function saveGame(userID, name, gameStatus) {
     }
   }
 
-  console.log(newGame);
+  // if we should still create a new game between player and pc
+  if (newGame == true) {
+    let newGameObject = returnNewGameObject(userID, name);
+
+    newGameObject.ID = gameData.length + 1; // set the ID of the game
+    newGameObject.rounds++; // increase rounds by 1
+    newGameObject[gameStatus]++; // increase property of draw, win, or lose
+
+    //if array is empty
+    if(gameData.length < 1) {
+      gameData = [newGameObject]; // empty array replacxed with array that has object inside
+    }
+
+    //if array contains objects already
+    else if(gameData.length > 0) {
+      gameData.push(newGameObject); // push the object into back of the array
+    }
+  }
+
+  saveGameData(gameData); //save data
 }
 
 // save gamedata
