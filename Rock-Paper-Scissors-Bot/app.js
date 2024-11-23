@@ -63,8 +63,10 @@ Client.on("messageCreate", (message) => {
 
       message.reply("You selected rock and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
 
-      let obj = returnNewGameObject(message.author.id, message.author.tag);
-      saveGameData(obj);
+      // let obj = returnNewGameObject(message.author.id, message.author.tag);
+      // saveGameData(obj);
+
+      console.log(returnGameData());
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
@@ -120,6 +122,15 @@ function saveGameData(data) {
   const path = "./gamedata.json";
 
   fs.writeFileSync(path, JSON.stringify(data));
+}
+
+// read and return game data
+function returnGameData() {
+  const fs = require("fs"); //filesystem
+  const path = "./gamedata.json";
+  const encoding = "utf-8"; //encoding for displaying correct characters
+
+  return JSON.parse(fs.readFileSync(path, encoding));
 }
 
 // Object Structure
