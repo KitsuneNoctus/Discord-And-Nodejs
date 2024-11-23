@@ -46,16 +46,19 @@ Client.on("messageCreate", (message) => {
       // pc selected rock = draw
       if (pcOptions[pcRoll] == userInputToLowerCase) {
         statusMessage = "It's a Draw";
+        saveGame(message.author.id, message.author.tag, "draw");
       }
 
       // pc selected scissors = player win
       else if (pcOptions[pcRoll] == "scissors") {
         statusMessage = "You Win";
+        saveGame(message.author.id, message.author.tag, "win");
       }
 
       // pc selected paper = player lose
       else if (pcOptions[pcRoll] == "paper") {
         statusMessage = "You Lose";
+        saveGame(message.author.id, message.author.tag, "lose");
       }
       // only run if something is wrong
       else { message.reply("Error in the code"); }
@@ -66,7 +69,9 @@ Client.on("messageCreate", (message) => {
       // let obj = returnNewGameObject(message.author.id, message.author.tag);
       // saveGameData(obj);
 
-      console.log(returnGameData());
+      // console.log(returnGameData());
+
+      // saveGame(message.author.id, message.author.tag, );
     }
     // if user wrote paper
     else if (userInputToLowerCase == "paper") {
@@ -115,6 +120,17 @@ Client.on("messageCreate", (message) => {
       message.reply("You selected scissors and pc selected " + pcOptions[pcRoll] + " - " + statusMessage);
     }
 });
+
+// saveGame() needs userID + draw/win/lose
+function saveGame(userID, name, gameStatus) {
+  let gameData = returnGameData();
+
+  gameData.userID = userID;
+  gameData.name = name;
+  gameData[gameStatus]++;
+
+  console.log(gameData);
+}
 
 // save gamedata
 function saveGameData(data) {
