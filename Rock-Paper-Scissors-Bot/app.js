@@ -123,13 +123,21 @@ Client.on("messageCreate", (message) => {
 
 // saveGame() needs userID + draw/win/lose
 function saveGame(userID, name, gameStatus) {
-  let gameData = returnGameData();
+  let gameData = returnGameData(); // get data from gamedata.json
+  let newGame = true; // default true unless we find a game by the player with less than 3 rounds
 
-  gameData.userID = userID;
-  gameData.name = name;
-  gameData[gameStatus]++;
+  // loop through gamedata.json array
+  for (let i = 0; i < gameData.length; i++) {
+    // if user exists within a game and the rounds of the game are less than 3 (0, 1, 2)
+    if (gameData[i].userID == userID && gameData[i].rounds < 3) {
+      newGame = false; // turns to false since we found a game
+      
+      gameData[i].rounds++;
+      gameData[i][gameStatus]++;
+    }
+  }
 
-  console.log(gameData);
+  console.log(newGame);
 }
 
 // save gamedata
